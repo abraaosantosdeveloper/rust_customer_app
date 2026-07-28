@@ -47,3 +47,10 @@ After installing Rust, just open the app folder on your terminal, and type:
 
 `cargo run`
 
+### Dependencies
+
+You will need to add the following dependencies by running `cargo add <dependency_name>`:
+
+- clearscreen
+
+> For now, only one is needed. 
