@@ -1,7 +1,9 @@
-use crate::interface::basic_operations::{clearTerminal, wait};
+use crate::interface::basic_operations::clearTerminal;
 use crate::interface::input;
+use crate::models::customer::Customer;
+use crate::services::customer_service::{register_customer, return_customers};
 
-pub fn show_menu() {
+pub fn show_menu(customers: &mut Vec<Customer>) {
     loop {
         clearTerminal();
         println!(
@@ -17,12 +19,13 @@ pub fn show_menu() {
         );
 
         let option: i32 = input::input_data_int();
+
         clearTerminal();
 
         match option {
-            1 => println!("Opt1"),
+            1 => register_customer(customers),
             2 => println!("Opt2"),
-            3 => println!("Opt3"),
+            3 => return_customers(customers),
             4 => println!("Opt4"),
             0 => {
                 println!("Bye!");
@@ -30,6 +33,5 @@ pub fn show_menu() {
             }
             _ => println!("Invalid..."),
         }
-        wait(2);
     }
 }
