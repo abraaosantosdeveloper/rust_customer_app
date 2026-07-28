@@ -1,8 +1,9 @@
 // Customer struct
+#[derive(Default)]
 pub struct Customer {
-    id: i32,
-    name: String,
-    email: String,
-    cpf: String,
-    address: String,
+    pub id: usize,
+    pub name: String,
+    pub email: String,
+    pub cpf: String,
+    pub address: String,
 }
