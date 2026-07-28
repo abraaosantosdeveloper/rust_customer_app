@@ -1,4 +1,4 @@
-![Logo](./Logo.svg)
+![Logo](./EC_Logo.svg)
 
 Simple customer manager console app built in Rust language for educational purposes. 
 
