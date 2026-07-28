@@ -72,7 +72,43 @@ pub fn update_customer(customers: &mut Vec<Customer>) {
 //          DELETE OPERATION              //
 //                                        //
 //========================================//
-pub fn delete_customer() {}
+pub fn delete_customer(customers: &mut Vec<Customer>) {
+    clearTerminal();
+    if is_registry_empty(customers) {
+        return;
+    }
+
+    let id = get_id();
+    if let Some((index, customer)) = get_customer_by_id(customers, id) {
+        println!("{}", "-".to_string().repeat(40));
+        println!("Are you sure you want to delete this customer?");
+        show_customer(customer);
+        println!("{}", "-".to_string().repeat(40));
+        println!("y - Yes\nn - No");
+
+        let option = input_data();
+
+        // Confirm action
+        if option == "y" {
+            customers.remove(index);
+            clearTerminal();
+        } else if option == "n" {
+            clearTerminal();
+            println!("Operation cancelled.");
+        } else {
+            clearTerminal();
+            println!("Invalid Operation!");
+        }
+
+        clearTerminal();
+        println!("Customer deleted successfully!");
+    } else {
+        clearTerminal();
+        println!("Customer not found...");
+    };
+    wait(1);
+    return;
+}
 
 //========================================//
 //                                        //
