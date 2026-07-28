@@ -3,7 +3,9 @@ use std::option;
 use crate::interface::basic_operations::clearTerminal;
 use crate::interface::input;
 use crate::models::customer::Customer;
-use crate::services::customer_service::{register_customer, return_customers, update_customer};
+use crate::services::customer_service::{
+    delete_customer, register_customer, return_customers, update_customer,
+};
 
 pub fn show_menu(customers: &mut Vec<Customer>) {
     loop {
@@ -28,7 +30,7 @@ pub fn show_menu(customers: &mut Vec<Customer>) {
             1 => register_customer(customers),
             2 => update_customer(customers),
             3 => return_customers(customers),
-            4 => println!("Opt4"),
+            4 => delete_customer(customers),
             0 => {
                 println!("Bye!");
                 return;
