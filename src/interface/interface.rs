@@ -1,7 +1,9 @@
+use crate::interface::basic_operations::{clearTerminal, wait};
 use crate::interface::input;
 
 pub fn show_menu() {
     loop {
+        clearTerminal();
         println!(
             "\
         =============== MENU ===============\n\
@@ -15,6 +17,7 @@ pub fn show_menu() {
         );
 
         let option: i32 = input::input_data_int();
+        clearTerminal();
 
         match option {
             1 => println!("Opt1"),
@@ -27,5 +30,6 @@ pub fn show_menu() {
             }
             _ => println!("Invalid..."),
         }
+        wait(2);
     }
 }
